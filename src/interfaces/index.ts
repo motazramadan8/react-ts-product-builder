@@ -8,3 +8,10 @@ export interface IProduct {
   categoryTitle: string;
   categoryImage: string;
 }
+
+export interface IFormInput {
+  id: string;
+  name: string;
+  label: string;
+  type: string;
+}

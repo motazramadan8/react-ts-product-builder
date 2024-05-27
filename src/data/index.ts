@@ -1,4 +1,4 @@
-import { IProduct } from "../interfaces";
+import { IProduct, IFormInput } from "../interfaces";
 import { v4 as uuid } from "uuid";
 
 export const productList: IProduct[] = [
@@ -105,5 +105,32 @@ export const productList: IProduct[] = [
     categoryImage:
       "https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80",
     categoryTitle: "Islands",
+  },
+];
+
+export const formInputsList: IFormInput[] = [
+  {
+    id: "title",
+    name: "title",
+    label: "Product Title",
+    type: "text",
+  },
+  {
+    id: "description",
+    name: "description",
+    label: "Product description",
+    type: "text",
+  },
+  {
+    id: "image",
+    name: "imageURL",
+    label: "Product Image URL",
+    type: "text",
+  },
+  {
+    id: "price",
+    name: "price",
+    label: "Product Price",
+    type: "text",
   },
 ];

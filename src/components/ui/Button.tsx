@@ -22,10 +22,10 @@ const Button = ({
           ? "bg-red-700 hover:bg-red-800"
           : variant === "primary"
           ? "bg-indigo-600 hover:bg-indigo-700"
-          : variant === "success"
-          ? "bg-green-600 hover:bg-green-700"
+          : variant === "cancel"
+          ? "bg-[#d1d5dbb5] hover:bg-gray-300 !text-gray-950"
           : ""
-      } ${width} p-3 text-white rounded-md font-medium transition ${className}`}
+      } ${width} p-3 text-white rounded-lg font-medium transition ${className}`}
       {...props}
     >
       {children}

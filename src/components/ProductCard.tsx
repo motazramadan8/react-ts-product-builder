@@ -19,8 +19,8 @@ const ProductCard = ({ product }: IProps) => {
   } = product;
   // ** Renders
   return (
-    <div className="max-w-sm md:max-w-lg mx-auto md:mx-0 border rounded-md p-[8px] flex flex-col">
-      <Image imageURL={image} alt={title} className="rounded-md" />
+    <div className="max-w-sm md:max-w-lg mx-auto md:mx-0 border rounded-lg p-[8px] flex flex-col">
+      <Image imageURL={image} alt={title} className="rounded-lg" />
 
       <h3 className="text-xl font-normal my-2">{title}</h3>
       <p className="text-gray-500">{textSlicer(description)}</p>
