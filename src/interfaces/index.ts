@@ -15,3 +15,10 @@ export interface IFormInput {
   label: string;
   type: string;
 }
+
+export interface IValidationProduct {
+  title: string;
+  description: string;
+  imageURL: string;
+  price: string;
+}
