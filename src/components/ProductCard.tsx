@@ -6,22 +6,23 @@ import CircleColor from "./ui/CircleColor";
 
 interface IProps {
   product: IProduct;
+  setProductToEdit: (product: IProduct) => void;
+  openEditModal: () => void;
 }
 
-const ProductCard = ({ product }: IProps) => {
-  const {
-    title,
-    imageURL,
-    price,
-    description,
-    colors,
-    categoryTitle,
-    categoryImage,
-  } = product;
+const ProductCard = ({ product, setProductToEdit, openEditModal }: IProps) => {
+  const { title, imageURL, price, description, colors, category } = product;
 
-  // ** Renders
+  /* --------- HANDLER --------- */
+  const onEdit = () => {
+    console.log(product);
+    openEditModal()
+    setProductToEdit(product);
+  };
+
+  /* --------- RENDER --------- */
   const renderProductColors = colors.map((color) => (
-    <CircleColor color={color} />
+    <CircleColor key={color} color={color} />
   ));
 
   return (
@@ -39,16 +40,16 @@ const ProductCard = ({ product }: IProps) => {
         <span className="text-xl font-bold text-indigo-600">${price}</span>
         <div className="flex items-center space-x-2">
           <Image
-            imageURL={categoryImage}
-            alt={categoryTitle}
+            imageURL={category.categoryImage}
+            alt={category.categoryTitle}
             className="w-10 h-10 rounded-full object-cover"
           />
-          <h5 className="font-medium">{categoryTitle}</h5>
+          <h5 className="font-medium">{category.categoryTitle}</h5>
         </div>
       </div>
 
       <div className="flex justify-between space-x-2 mt-4">
-        <Button onClick={() => console.log("Clicked")}>Edit</Button>
+        <Button onClick={onEdit}>Edit</Button>
         <Button variant="danger">Destroy</Button>
       </div>
     </div>

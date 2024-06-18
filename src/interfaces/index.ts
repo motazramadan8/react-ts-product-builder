@@ -1,24 +1,42 @@
+import { ProductNamesType } from "../types";
+
 export interface IProduct {
-  id?: string | undefined;
+  id?: string;
   title: string;
   description: string;
   imageURL: string;
   price: string;
   colors: string[];
-  categoryTitle: string;
-  categoryImage: string;
+  category: {
+    categoryTitle: string;
+    categoryImage: string;
+  };
 }
 
 export interface IFormInput {
   id: string;
-  name: "title" | "description" | "price" | "imageURL";
+  name: ProductNamesType;
   label: string;
   type: string;
 }
 
-export interface IValidationProduct {
+interface IValidation {
   title: string;
   description: string;
   imageURL: string;
   price: string;
+}
+
+export interface IValidationProduct extends IValidation {
+  colors: string[];
+}
+
+export interface IErrors extends IValidation {
+  colors: string;
+}
+
+export interface ICategory {
+  id: string;
+  categoryTitle: string;
+  categoryImage: string;
 }

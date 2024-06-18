@@ -1,4 +1,4 @@
-import { IValidationProduct } from "../interfaces";
+import { IErrors, IValidationProduct } from "../interfaces";
 
 /**
  * Validate create product data.
@@ -6,12 +6,12 @@ import { IValidationProduct } from "../interfaces";
  * @returns {object} The errors object.
  */
 export const productValidation = (product: IValidationProduct) => {
-  // Returns an object
-  const errors: IValidationProduct = {
+  const errors: IErrors = {
     title: "",
     description: "",
     imageURL: "",
     price: "",
+    colors: "",
   };
 
   const validImageURL = /^(ftp|http|https):\/\/[^ "]+$/.test(product.imageURL);
@@ -39,6 +39,10 @@ export const productValidation = (product: IValidationProduct) => {
 
   if (!product.imageURL.trim() || isNaN(+product.price)) {
     errors.price = "Invalid product price";
+  }
+
+  if (product.colors.length === 0) {
+    errors.colors = "Please enter product colors";
   }
 
   return errors;
