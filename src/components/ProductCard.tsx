@@ -30,6 +30,7 @@ const ProductCard = ({
     setProductToEditIdx(index);
   };
   const onDelete = () => {
+    setProductToEdit(product);
     openDeleteModal();
   };
 
@@ -66,7 +67,7 @@ const ProductCard = ({
       <div className="flex justify-between space-x-2 mt-4">
         <Button onClick={onEdit}>Edit</Button>
         <Button onClick={onDelete} variant="danger">
-          Destroy
+          Remove
         </Button>
       </div>
     </div>

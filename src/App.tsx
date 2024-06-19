@@ -11,6 +11,7 @@ import CircleColor from "./components/ui/CircleColor";
 import { v4 as uuid } from "uuid";
 import Select from "./components/ui/Select";
 import { ProductNamesType } from "./types";
+import { toast, Toaster } from "react-hot-toast";
 
 const App = () => {
   const defaultProductObj = {
@@ -93,6 +94,23 @@ const App = () => {
     closeDeleteModal();
   };
 
+  const removeProductHandler = () => {
+    let filteredProducts = [...products];
+    filteredProducts = filteredProducts.filter(
+      (product) => product.id !== productToEdit.id
+    );
+    setProducts(filteredProducts);
+
+    closeDeleteModal();
+    toast.success("Product deleted successfully!", {
+      style: {
+        borderRadius: "10px",
+        background: "#000",
+        color: "#fff",
+      },
+    });
+  };
+
   const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const { title, description, imageURL, price } = product;
@@ -127,6 +145,13 @@ const App = () => {
     setProduct(defaultProductObj);
     setTempColor([]);
     closeModal();
+    toast.success("Product added successfully!", {
+      style: {
+        borderRadius: "10px",
+        background: "#000",
+        color: "#fff",
+      },
+    });
   };
 
   const submitEditHandler = (e: FormEvent<HTMLFormElement>): void => {
@@ -162,6 +187,13 @@ const App = () => {
     setProductToEdit(defaultProductObj);
     setTempColor([]);
     closeEditModal();
+    toast.success("Product edited successfully!", {
+      style: {
+        borderRadius: "10px",
+        background: "#000",
+        color: "#fff",
+      },
+    });
   };
 
   /* --------- RENDER --------- */
@@ -344,26 +376,26 @@ const App = () => {
         closeModal={closeDeleteModal}
         title="Are you sure you want to remove this product from your store?"
       >
-        <form className="space-y-3" onSubmit={() => console.log("deleted!")}>
-          <div className="my-1 text-gray-500 text-sm">
-            Deleting this product will remove it permanently from your
-            inventory, Any associated data, sales history, and other related
-            information will also be deleted. Please make sure this is the
-            intended action.
-          </div>
+        <div className="my-1 text-gray-500 text-sm">
+          Deleting this product will remove it permanently from your inventory,
+          Any associated data, sales history, and other related information will
+          also be deleted. Please make sure this is the intended action.
+        </div>
 
-          <div className="flex items-center space-x-3">
-            <Button variant="danger">Yes, remove</Button>
-            <Button
-              onClick={onCancelDeleteProduct}
-              variant="cancel"
-              type="button"
-            >
-              Cancel
-            </Button>
-          </div>
-        </form>
+        <div className="flex items-center space-x-3">
+          <Button onClick={removeProductHandler} variant="danger">
+            Yes, remove
+          </Button>
+          <Button
+            onClick={onCancelDeleteProduct}
+            variant="cancel"
+            type="button"
+          >
+            Cancel
+          </Button>
+        </div>
       </Modal>
+      <Toaster position="top-right" />
     </main>
   );
 };
