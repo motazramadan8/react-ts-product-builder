@@ -11,7 +11,7 @@ import { categories } from "../../data";
 import { ICategory } from "../../interfaces";
 
 interface IProps {
-  selected: ICategory;
+  selected: { categoryTitle: string; categoryImage: string };
   setSelected: (category: ICategory) => void;
 }
 

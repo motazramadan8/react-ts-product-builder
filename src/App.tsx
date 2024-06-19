@@ -30,6 +30,7 @@ const App = () => {
   const [product, setProduct] = useState<IProduct>(defaultProductObj);
   const [productToEdit, setProductToEdit] =
     useState<IProduct>(defaultProductObj);
+  const [productToEditIdx, setProductToEditIdx] = useState<number>(0);
   const [errors, setErrors] = useState<IErrors>({
     title: "",
     description: "",
@@ -40,14 +41,16 @@ const App = () => {
   const [tempColor, setTempColor] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isOpenEditModal, setIsOpenEditModal] = useState<boolean>(false);
+  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-  console.log(productToEdit);
 
   /* --------- HANDLER --------- */
   const closeModal = () => setIsOpen(false);
   const openModal = () => setIsOpen(true);
   const closeEditModal = () => setIsOpenEditModal(false);
   const openEditModal = () => setIsOpenEditModal(true);
+  const closeDeleteModal = () => setIsOpenDeleteModal(false);
+  const openDeleteModal = () => setIsOpenDeleteModal(true);
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
 
@@ -76,9 +79,18 @@ const App = () => {
     });
   };
 
-  const onCancel = () => {
+  const onCancelAddProduct = () => {
     setProduct(defaultProductObj);
     closeModal();
+  };
+
+  const onCancelEditProduct = () => {
+    setProductToEdit(defaultProductObj);
+    closeEditModal();
+  };
+
+  const onCancelDeleteProduct = () => {
+    closeDeleteModal();
   };
 
   const submitHandler = (e: FormEvent<HTMLFormElement>): void => {
@@ -119,14 +131,14 @@ const App = () => {
 
   const submitEditHandler = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    const { title, description, imageURL, price } = productToEdit;
+    const { title, description, imageURL, price, colors } = productToEdit;
 
     const errors = productValidation({
       title,
       description,
       imageURL,
       price,
-      colors: tempColor,
+      colors: [...tempColor, ...colors],
     });
 
     const hasErrorMsg =
@@ -139,18 +151,29 @@ const App = () => {
     }
 
     // ** Update Product
+    const updatedProduct = [...products];
+    updatedProduct[productToEditIdx] = {
+      ...productToEdit,
+      colors: [...productToEdit.colors, ...tempColor],
+    };
+    console.log(updatedProduct[productToEditIdx]);
+    setProducts(updatedProduct);
+
     setProductToEdit(defaultProductObj);
     setTempColor([]);
-    closeModal();
+    closeEditModal();
   };
 
   /* --------- RENDER --------- */
-  const renderProductList = products.map((product) => (
+  const renderProductList = products.map((product, index) => (
     <ProductCard
       key={product.id}
       product={product}
       setProductToEdit={setProductToEdit}
       openEditModal={openEditModal}
+      openDeleteModal={openDeleteModal}
+      setProductToEditIdx={setProductToEditIdx}
+      index={index}
     />
   ));
 
@@ -179,6 +202,10 @@ const App = () => {
       color={color}
       onClick={() => {
         if (tempColor.includes(color)) {
+          setTempColor((prev) => prev.filter((c) => c !== color));
+          return;
+        }
+        if (productToEdit.colors.includes(color)) {
           setTempColor((prev) => prev.filter((c) => c !== color));
           return;
         }
@@ -248,7 +275,7 @@ const App = () => {
           </div>
           <div className="flex items-center space-x-3">
             <Button>Submit</Button>
-            <Button onClick={onCancel} variant="cancel" type="button">
+            <Button onClick={onCancelAddProduct} variant="cancel" type="button">
               Cancel
             </Button>
           </div>
@@ -275,16 +302,18 @@ const App = () => {
           )}
           {renderProductEditWithErrorMsg("price", "Product Price", "price")}
 
-          {/* <Select
-            selected={selectedCategory}
-            setSelected={setSelectedCategory}
-          /> */}
+          <Select
+            selected={productToEdit.category}
+            setSelected={(val) =>
+              setProductToEdit({ ...productToEdit, category: val })
+            }
+          />
 
-          {/* <div className="flex items-center space-x-2 flex-wrap">
+          <div className="flex items-center space-x-2 flex-wrap">
             {renderFormColors}
           </div>
           <div className="flex items-center space-x-1 space-y-1 flex-wrap">
-            {tempColor.map((color) => (
+            {tempColor.concat(productToEdit.colors).map((color) => (
               <span
                 key={color}
                 style={{ backgroundColor: color }}
@@ -294,10 +323,42 @@ const App = () => {
               </span>
             ))}
             <ErrorMessage msg={errors["colors"]} />
-          </div> */}
+          </div>
+
           <div className="flex items-center space-x-3">
             <Button>Submit</Button>
-            <Button onClick={onCancel} variant="cancel" type="button">
+            <Button
+              onClick={onCancelEditProduct}
+              variant="cancel"
+              type="button"
+            >
+              Cancel
+            </Button>
+          </div>
+        </form>
+      </Modal>
+
+      {/* Delete product modal */}
+      <Modal
+        isOpen={isOpenDeleteModal}
+        closeModal={closeDeleteModal}
+        title="Are you sure you want to remove this product from your store?"
+      >
+        <form className="space-y-3" onSubmit={() => console.log("deleted!")}>
+          <div className="my-1 text-gray-500 text-sm">
+            Deleting this product will remove it permanently from your
+            inventory, Any associated data, sales history, and other related
+            information will also be deleted. Please make sure this is the
+            intended action.
+          </div>
+
+          <div className="flex items-center space-x-3">
+            <Button variant="danger">Yes, remove</Button>
+            <Button
+              onClick={onCancelDeleteProduct}
+              variant="cancel"
+              type="button"
+            >
               Cancel
             </Button>
           </div>

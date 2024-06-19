@@ -1,23 +1,36 @@
 import Button from "./ui/Button";
 import Image from "./ui/Image";
 import { IProduct } from "../interfaces";
-import { textSlicer } from "../utils/functions";
+import { numberWithComma, textSlicer } from "../utils/functions";
 import CircleColor from "./ui/CircleColor";
 
 interface IProps {
   product: IProduct;
   setProductToEdit: (product: IProduct) => void;
   openEditModal: () => void;
+  setProductToEditIdx: (value: number) => void;
+  openDeleteModal: () => void;
+  index: number;
 }
 
-const ProductCard = ({ product, setProductToEdit, openEditModal }: IProps) => {
+const ProductCard = ({
+  product,
+  setProductToEdit,
+  openEditModal,
+  setProductToEditIdx,
+  openDeleteModal,
+  index,
+}: IProps) => {
   const { title, imageURL, price, description, colors, category } = product;
 
   /* --------- HANDLER --------- */
   const onEdit = () => {
-    console.log(product);
-    openEditModal()
+    openEditModal();
     setProductToEdit(product);
+    setProductToEditIdx(index);
+  };
+  const onDelete = () => {
+    openDeleteModal();
   };
 
   /* --------- RENDER --------- */
@@ -37,7 +50,9 @@ const ProductCard = ({ product, setProductToEdit, openEditModal }: IProps) => {
       </div>
 
       <div className="flex items-center justify-between">
-        <span className="text-xl font-bold text-indigo-600">${price}</span>
+        <span className="text-xl font-bold text-indigo-600">
+          ${numberWithComma(price)}
+        </span>
         <div className="flex items-center space-x-2">
           <Image
             imageURL={category.categoryImage}
@@ -50,7 +65,9 @@ const ProductCard = ({ product, setProductToEdit, openEditModal }: IProps) => {
 
       <div className="flex justify-between space-x-2 mt-4">
         <Button onClick={onEdit}>Edit</Button>
-        <Button variant="danger">Destroy</Button>
+        <Button onClick={onDelete} variant="danger">
+          Destroy
+        </Button>
       </div>
     </div>
   );

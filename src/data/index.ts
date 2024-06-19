@@ -9,12 +9,12 @@ export const productList: IProduct[] = [
     title: "1- 2024 Greenland island",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum reiciendis, magnam perspiciatis delectus provident quas quis. Mollitia ipsam quia similique quaerat, odio ipsa eius numquam necessitatibus eveniet. Quos dolore alias temporibus tempore animi sapiente dolorum, rem molestias earum praesentium inventore nobis. Doloribus ipsa itaque praesentium voluptatem ipsam repellendus accusamus iste.",
-    colors: ["#4F46E5", "#F97316", "#DC2626"],
+    colors: ["#2563eb", "#f59e0b", "#dc2626"],
     price: "1000000",
     category: {
       categoryImage:
         "https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80",
-      categoryTitle: "Islands",
+      categoryTitle: "Catergory 2",
     },
   },
   {
@@ -24,12 +24,12 @@ export const productList: IProduct[] = [
     title: "2- 2024 Greenland island",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum reiciendis, magnam perspiciatis delectus provident quas quis. Mollitia ipsam quia similique quaerat, odio ipsa eius numquam necessitatibus eveniet. Quos dolore alias temporibus tempore animi sapiente dolorum, rem molestias earum praesentium inventore nobis. Doloribus ipsa itaque praesentium voluptatem ipsam repellendus accusamus iste.",
-    colors: ["#4F46E5", "#F97316"],
+    colors: ["#2563eb", "#f59e0b"],
     price: "3000000",
     category: {
       categoryImage:
         "https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80",
-      categoryTitle: "Islands",
+      categoryTitle: "Catergory 1",
     },
   },
   {
@@ -39,12 +39,12 @@ export const productList: IProduct[] = [
     title: "3- 2024 Greenland island",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum reiciendis, magnam perspiciatis delectus provident quas quis. Mollitia ipsam quia similique quaerat, odio ipsa eius numquam necessitatibus eveniet. Quos dolore alias temporibus tempore animi sapiente dolorum, rem molestias earum praesentium inventore nobis. Doloribus ipsa itaque praesentium voluptatem ipsam repellendus accusamus iste.",
-    colors: ["#4F46E5", "#F97316", "#DC2626"],
+    colors: ["#2563eb", "#f59e0b", "#dc2626"],
     price: "1500000",
     category: {
       categoryImage:
         "https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80",
-      categoryTitle: "Islands",
+      categoryTitle: "Catergory 1",
     },
   },
   {
@@ -54,12 +54,12 @@ export const productList: IProduct[] = [
     title: "4- 2024 Greenland island",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum reiciendis, magnam perspiciatis delectus provident quas quis. Mollitia ipsam quia similique quaerat, odio ipsa eius numquam necessitatibus eveniet. Quos dolore alias temporibus tempore animi sapiente dolorum, rem molestias earum praesentium inventore nobis. Doloribus ipsa itaque praesentium voluptatem ipsam repellendus accusamus iste.",
-    colors: ["#4F46E5", "#F97316", "#DC2626"],
+    colors: ["#2563eb", "#f59e0b", "#dc2626"],
     price: "5000000",
     category: {
       categoryImage:
         "https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80",
-      categoryTitle: "Islands",
+      categoryTitle: "Catergory 1",
     },
   },
   {
@@ -69,12 +69,12 @@ export const productList: IProduct[] = [
     title: "5- 2024 Greenland island",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum reiciendis, magnam perspiciatis delectus provident quas quis. Mollitia ipsam quia similique quaerat, odio ipsa eius numquam necessitatibus eveniet. Quos dolore alias temporibus tempore animi sapiente dolorum, rem molestias earum praesentium inventore nobis. Doloribus ipsa itaque praesentium voluptatem ipsam repellendus accusamus iste.",
-    colors: ["#4F46E5", "#F97316", "#DC2626"],
+    colors: ["#2563eb", "#f59e0b", "#dc2626"],
     price: "1200000",
     category: {
       categoryImage:
         "https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80",
-      categoryTitle: "Islands",
+      categoryTitle: "Catergory 1",
     },
   },
   {
@@ -84,12 +84,12 @@ export const productList: IProduct[] = [
     title: "6- 2024 Greenland island",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum reiciendis, magnam perspiciatis delectus provident quas quis. Mollitia ipsam quia similique quaerat, odio ipsa eius numquam necessitatibus eveniet. Quos dolore alias temporibus tempore animi sapiente dolorum, rem molestias earum praesentium inventore nobis. Doloribus ipsa itaque praesentium voluptatem ipsam repellendus accusamus iste.",
-    colors: ["#4F46E5", "#F97316", "#DC2626"],
+    colors: ["#2563eb", "#f59e0b", "#dc2626"],
     price: "2500000",
     category: {
       categoryImage:
         "https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80",
-      categoryTitle: "Islands",
+      categoryTitle: "Catergory 1",
     },
   },
   {
@@ -99,12 +99,12 @@ export const productList: IProduct[] = [
     title: "7- 2024 Greenland island",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum reiciendis, magnam perspiciatis delectus provident quas quis. Mollitia ipsam quia similique quaerat, odio ipsa eius numquam necessitatibus eveniet. Quos dolore alias temporibus tempore animi sapiente dolorum, rem molestias earum praesentium inventore nobis. Doloribus ipsa itaque praesentium voluptatem ipsam repellendus accusamus iste.",
-    colors: ["#4F46E5", "#F97316", "#DC2626"],
+    colors: ["#2563eb", "#f59e0b", "#dc2626"],
     price: "8000000",
     category: {
       categoryImage:
         "https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80",
-      categoryTitle: "Islands",
+      categoryTitle: "Catergory 1",
     },
   },
   {
@@ -114,12 +114,12 @@ export const productList: IProduct[] = [
     title: "8- 2024 Greenland island",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum reiciendis, magnam perspiciatis delectus provident quas quis. Mollitia ipsam quia similique quaerat, odio ipsa eius numquam necessitatibus eveniet. Quos dolore alias temporibus tempore animi sapiente dolorum, rem molestias earum praesentium inventore nobis. Doloribus ipsa itaque praesentium voluptatem ipsam repellendus accusamus iste.",
-    colors: ["#4F46E5", "#F97316", "#DC2626"],
+    colors: ["#2563eb", "#f59e0b", "#dc2626"],
     price: "9000000",
     category: {
       categoryImage:
         "https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2717&q=80",
-      categoryTitle: "Islands",
+      categoryTitle: "Catergory 1",
     },
   },
 ];
