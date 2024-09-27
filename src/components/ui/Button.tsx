@@ -1,4 +1,5 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { ButtonHTMLAttributes, memo, ReactNode } from "react";
 import { ButtonVariantType, ButtonWidthType } from "../../types";
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -33,4 +34,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default memo(Button);

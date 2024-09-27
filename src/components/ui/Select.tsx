@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import {
   Label,
   Listbox,
@@ -9,6 +10,7 @@ import {
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { categories } from "../../data";
 import { ICategory } from "../../interfaces";
+import { memo } from "react";
 
 interface IProps {
   selected: { categoryTitle: string; categoryImage: string };
@@ -107,4 +109,4 @@ const Select = ({ selected, setSelected }: IProps) => {
   );
 };
 
-export default Select;
+export default memo(Select);

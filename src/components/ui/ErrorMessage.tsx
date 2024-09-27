@@ -1,3 +1,6 @@
+/* eslint-disable react-refresh/only-export-components */
+import { memo } from "react";
+
 interface IProps {
   msg: string;
 }
@@ -8,4 +11,4 @@ const ErrorMessage = ({ msg }: IProps) => {
   ) : null;
 };
 
-export default ErrorMessage;
+export default memo(ErrorMessage);
