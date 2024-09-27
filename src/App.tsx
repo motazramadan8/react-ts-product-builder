@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import ProductCard from "./components/ProductCard";
 import Modal from "./components/ui/Modal";
 import { productList, formInputsList, colors, categories } from "./data";
@@ -48,10 +48,10 @@ const App = () => {
   /* --------- HANDLER --------- */
   const closeModal = () => setIsOpen(false);
   const openModal = () => setIsOpen(true);
+  const openEditModal = useCallback(() => setIsOpenEditModal(true), []);
   const closeEditModal = () => setIsOpenEditModal(false);
-  const openEditModal = () => setIsOpenEditModal(true);
+  const openDeleteModal = useCallback(() => setIsOpenDeleteModal(true), []);
   const closeDeleteModal = () => setIsOpenDeleteModal(false);
-  const openDeleteModal = () => setIsOpenDeleteModal(true);
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
 

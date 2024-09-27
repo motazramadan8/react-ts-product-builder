@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Button from "./ui/Button";
 import Image from "./ui/Image";
 import { IProduct } from "../interfaces";
@@ -74,4 +75,5 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard;
+// eslint-disable-next-line react-refresh/only-export-components
+export default memo(ProductCard);
